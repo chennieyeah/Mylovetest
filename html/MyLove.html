@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Anniversary Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Cursive', sans-serif; /* Italic cursive font */
+            background-color: #8B0000; /* Dark red */
+            color: white; /* White text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .gallery-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .image-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.7); /* Lighter white border */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Glowing effect */
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+    opacity: 0; /* Initial opacity for fade-in */
+    animation: fadeIn 1s forwards; /* Fade-in animation */
+}
+
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+       .image-container:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1); /* Stronger glowing effect */
+}
+
+        .message {
+            color: white; /* White text */
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            opacity: 0; /* Initial opacity for fade-in */
+            animation: fadeIn 2s forwards 0.5s; /* Fade-in animation with delay */
+        }
+
+        .message h2 {
+            font-size: 28px;
+            margin: 10px 0;
+            font-style: italic; /* Italic style for the text */
+            text-align: center;
+            opacity: 0; /* Initial opacity for fade-in */
+            animation: fadeIn 1s forwards 0.10s; /* Fade-in animation with delay */
+        }
+
+        .message p {
+            font-size: 20px;
+            line-height: 1.6;
+            font-style: italic; /* Italic style for the text */
+            text-align: center;
+            opacity: 0; /* Initial opacity for fade-in */
+            animation: fadeIn 1.5s forwards 1s; /* Fade-in animation with delay */
+        }
+
+        .music-player {
+            margin-top: 20px; /* Added margin to position the music player below the text */
+        }
+
+        .music-player audio {
+            background-color:  #8B0000; /* Dark red */
+            border: #8B0000; /* Dark red */
+            border-radius: 5px;
+            padding: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .music-player audio:hover {
+            background-color: #333333; /* Darker black on hover */
+            transform: scale(1.1); /* Slight scale-up on hover */
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Make the message responsive on smaller screens */
+        @media (max-width: 600px) {
+            .message h2 {
+                font-size: 24px;
+            }
+
+            .message p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container" id="gallery"></div>
+
+    <div class="message">
+        <h2>Happy 7th Monthsary, My Love!</h2>
+        <p>
+           I just want you to know that I am always grateful for you. Your presence in my life fills my days with joy, and I'm thankful for every moment we share. Your kindness, your support, and the love you give mean more to me than words can express. Here's to many more months, filled with love, laughter, and unforgettable memories. Thank you for being you, and for making my life so much better. I’m beyond lucky to have you by my side.
+        </p>
+    </div>
+
+    <div class="music-player">
+        <audio controls autoplay loop>
+            <source src="./oki.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        const gallery = document.getElementById('gallery');
+        const images = [
+            './inie.jpg',
+            './inie.jpg',
+            './inie.jpg',
+            './inie.jpg',
+            './inie.jpg',
+        ];
+
+        images.forEach(src => {
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'image-container';
+            const imgElement = document.createElement('img');
+            imgElement.src = src;
+            imageContainer.appendChild(imgElement);
+            gallery.appendChild(imageContainer);
+        });
+    </script>
+</body>
+</html>
